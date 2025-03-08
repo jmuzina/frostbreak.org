@@ -3,7 +3,7 @@ import Icon from './Icon.astro';
 import type {iconPaths} from './IconPaths';
 
 /** Main menu items */
-const textLinks: { label: string; href: string }= [
+const textLinks: { label: string; href: string }[] = [
     {label: 'About', href: '/about'},
     {label: 'Resources', href: '/resources'},
     {label: 'Events', href: '/events'},
@@ -11,7 +11,7 @@ const textLinks: { label: string; href: string }= [
 ];
 
 /** Icon links to social media — edit these with links to your profiles! */
-const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }= [
+const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
     {label: 'Discord', href: '#', icon: 'discord-logo'},
 ];
 
