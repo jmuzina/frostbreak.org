@@ -6,7 +6,7 @@ nav {
     padding: var(--spacing-xs) 0;
 }
 
-.nav-items {
+.nav__items {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -15,27 +15,27 @@ nav {
     gap: var(--spacing-s);
 }
 
-.nav-items li a {
+.nav__items-item a {
     display: block;
     padding: var(--spacing-s);
     color: var(--color-text-primary);
     text-decoration: none;
 }
 
-.nav-items li a:hover,
-.nav-items li a[aria-current="page"] {
+.nav__items-item a:hover,
+.nav__items-item a[aria-current="page"] {
     background-color: var(--color-background-light);
     border-radius: var(--spacing-xs);
 }
 
-.menu-header {
+.nav__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     /*margin-bottom: var(--spacing-m);*/
 }
 
-.site-title {
+.nav__site-title {
     display: flex;
     align-items: center;
     gap: var(--spacing-s);
@@ -45,7 +45,7 @@ nav {
     font-size: 1.2rem;
 }
 
-.menu-button {
+.nav__menu-button {
     background: none;
     border: none;
     cursor: pointer;
@@ -54,27 +54,27 @@ nav {
     padding: 0;
 }
 
-.menu-content {
+.nav__content {
     display: none;
 }
 
-.menu-footer {
+.nav__footer {
     margin-top: var(--spacing-m);
     display: flex;
     justify-content: center;
 }
 
-.socials {
+.nav__socials {
     display: flex;
     gap: var(--spacing-s);
 }
 
-.social {
+.nav__social {
     color: var(--color-primary);
     font-size: 1.5rem;
 }
 
-.social:hover {
+.nav__social:hover {
     color: var(--color-primary-dark);
 }
 
@@ -85,26 +85,26 @@ nav {
         justify-content: space-between;
     }
 
-    .nav-items {
+    .nav__items {
         flex-direction: row;
         gap: var(--spacing-m);
     }
 
-    .menu-header {
+    .nav__header {
         margin-bottom: 0;
     }
 
-    .menu-content,
-    noscript .nav-items,
-    noscript .menu-footer {
+    .nav__content,
+    .nav__items,
+    .nav__footer {
         display: flex;
     }
 
-    .menu-button {
+    .nav__menu-button {
         display: none;
     }
 
-    .menu-footer {
+    .nav__footer {
         margin-top: 0;
     }
 }
