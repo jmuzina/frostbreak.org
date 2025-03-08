@@ -28,7 +28,6 @@ inputs:
 
 runs:
   using: "composite"
-  working-directory: ${{ inputs.dist_path }}
   steps:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4.0.2
@@ -39,6 +38,7 @@ runs:
 
     - name: Deploy to S3
       shell: bash
+      working-directory: ${{ inputs.dist_path }}
       run: |
         aws s3 sync . s3://${{ inputs.AWS_S3_BUCKET_NAME }} --acl public-read --delete
 
