@@ -8,14 +8,25 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint && astro check && prettier -c .",
+    "lint:fix": "eslint --fix && prettier -c -w ."
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.2.1",
+    "@eslint/js": "^9.22.0",
+    "@typescript-eslint/parser": "^8.26.0",
     "astro": "^5.4.2",
     "browserslist": "^4.24.4",
+    "eslint": "^9.22.0",
+    "eslint-plugin-astro": "^1.3.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "lightningcss": "^1.29.2",
     "normalize.css": "^8.0.1",
-    "reset-css": "^5.0.2"
+    "prettier": "^3.5.3",
+    "reset-css": "^5.0.2",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.0"
   }
 }

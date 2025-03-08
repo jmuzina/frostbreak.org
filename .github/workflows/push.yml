@@ -1,9 +1,10 @@
-name: frostbreak prod
+name: Push to branches
 
 on:
   push:
     branches:
       - main
+      - dev
     paths:
       - src/**
       - public/**
@@ -13,7 +14,7 @@ on:
 
 jobs:
   build:
-    name: Build Production
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -23,6 +24,7 @@ jobs:
         uses: ./.github/actions/ci
 
       - name: Deploy
+        if: github.ref == 'refs/heads/main'
         uses: ./.github/actions/aws
         with:
           AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}

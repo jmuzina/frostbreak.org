@@ -8,6 +8,7 @@
 4. Run `npm run dev` to start the development server
 
 ## Tooling
+
 The site is build with [Astro](https://astro.build/), a static site generator that lets us build the site with a variety of techs (Vanilla HTML/CSS, React, Svelte, Vue, etc.) and deploy it as a static site.
 
 Currently, the site is hosted on AWS. The site is deployed to an S3 bucket and served through CloudFront.
@@ -24,3 +25,5 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm run lint`            | Lint for formatting & a11y errors                |
+| `npm run lint:fix`        | Lint and fix any fixable errors                  |
