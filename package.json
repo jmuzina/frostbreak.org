@@ -1,19 +1,19 @@
 {
   "name": "frostbreak",
-  "type": "module",
+  "description": "A home for Buffalo's queer community.",
   "version": "0.0.1",
+  "author": "Frostbreak",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
-  "dependencies": {
-    "astro": "^5.4.2",
-    "reset-css": "^5.0.2"
-  },
   "devDependencies": {
+    "astro": "^5.4.2",
     "@astrojs/react": "^4.2.1",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "reset-css": "^5.0.2"
   }
 }
