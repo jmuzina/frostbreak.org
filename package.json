@@ -9,9 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.4.2"
+    "astro": "^5.4.2",
+    "reset-css": "^5.0.2"
   },
   "devDependencies": {
-    "@astrojs/react": "^4.2.1"
+    "@astrojs/react": "^4.2.1",
+    "normalize.css": "^8.0.1"
   }
 }
