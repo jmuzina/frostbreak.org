@@ -1,0 +1,71 @@
+html {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    font-family: var(--font-family), sans-serif;
+    color: var(--color-text-primary);
+}
+
+body {
+    background-color: var(--color-background);
+    padding: 0 var(--spacing-body-padding);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-bold);
+}
+
+h1 {
+    font-size: var(--typography-font-size-h1);
+    line-height: var(--typography-line-height-h1);
+    margin-bottom: var(--spacing-m);
+}
+
+h2 {
+    font-size: var(--typography-font-size-h2);
+    line-height: var(--typography-line-height-h2);
+    margin-bottom: var(--spacing-m);
+}
+
+h3 {
+    font-size: var(--typography-font-size-h3);
+    line-height: var(--typography-line-height-h3);
+    margin-bottom: var(--spacing-s);
+}
+
+h4 {
+    font-size: var(--typography-font-size-h4);
+    line-height: var(--typography-line-height-h4);
+    margin-bottom: var(--spacing-s);
+}
+
+h5 {
+    font-size: var(--typography-font-size-h5);
+    line-height: var(--typography-line-height-h5);
+    margin-bottom: var(--spacing-xs);
+}
+
+h6 {
+    font-size: var(--typography-font-size-h6);
+    line-height: var(--typography-line-height-h6);
+    margin-bottom: var(--spacing-xs);
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+small, .small {
+    font-size: var(--typography-font-size-small);
+    line-height: var(--typography-line-height-small);
+    color: var(--color-text-secondary);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}

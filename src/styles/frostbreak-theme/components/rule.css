@@ -1,0 +1,4 @@
+hr {
+    border-color: var(--color-border);
+    margin: 2rem 0;
+}
