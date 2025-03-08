@@ -1,0 +1,26 @@
+name: frostbreak prod
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: CI
+        uses: ./.github/actions/ci.yml
+
+      - name: Deploy
+        uses: ./.github/actions/aws.yml
+        with:
+          AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}

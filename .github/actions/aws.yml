@@ -1,0 +1,48 @@
+name: "Deploy to S3 and Invalidate CloudFront"
+description: "Uploads artifacts to S3 and invalidates CloudFront cache"
+
+inputs:
+  dist_path:
+    required: true
+    description: "Path to the directory containing the web artifact to deploy"
+    default: "dist"
+  cloudfront_invalidation:
+    required: true
+    description: "Path or pattern within your web artifact for which to create a CloudFront invalidation"
+    default: "/*"
+  AWS_S3_BUCKET_NAME:
+    required: true
+    description: "Name of the S3 bucket to upload static web build artifacts to"
+  AWS_ACCESS_KEY_ID:
+    required: true
+    description: "AWS IAM Access Key ID for accessing resources"
+  AWS_SECRET_ACCESS_KEY:
+    required: true
+    description: "AWS IAM Secret Access Key for accessing resources"
+  AWS_CLOUDFRONT_DISTRIBUTION_ID:
+    required: true
+    description: "ID of the Cloudfront Distribution used by this artifact"
+  AWS_REGION:
+    required: true
+    description: "AWS deployment region"
+
+runs:
+  using: "composite"
+  working-directory: ${{ inputs.dist_path }}
+  steps:
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4.0.2
+      with:
+        aws-access-key-id: ${{ inputs.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ inputs.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ inputs.AWS_REGION }}
+
+    - name: Deploy to S3
+      shell: bash
+      run: |
+        aws s3 sync . s3://${{ inputs.AWS_S3_BUCKET_NAME }} --acl public-read --delete
+
+    - name: Invalidate CloudFront Distribution
+      shell: bash
+      run: |
+        aws cloudfront create-invalidation --distribution-id "${{ inputs.AWS_CLOUDFRONT_DISTRIBUTION_ID }}" --paths "${{ inputs.cloudfront_invalidation }}"

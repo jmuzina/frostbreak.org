@@ -1,0 +1,19 @@
+name: PR Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    name: PR Test
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: CI
+        uses: ./.github/actions/ci.yml
