@@ -1,0 +1,12 @@
+---
+import Hero from '../components/Hero.astro';
+
+interface Props {
+  title?: string
+  description?: string | undefined;
+}
+
+const { title = "Error", description = "An unknown error has occurred." } = Astro.props;
+---
+
+<Hero title={title} tagline={`Error: ${description}`} />

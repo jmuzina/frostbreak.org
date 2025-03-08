@@ -11,7 +11,7 @@ const {
 	description = 'A home for Buffalo\'s queer community.',
 } = Astro.props;
 ---
-
+<head title={title}>
 <meta charset="UTF-8" />
 <meta name="description" property="og:description" content={description} />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,3 +58,4 @@ const {
 <!--		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });-->
 <!--	}-->
 <!--</script>-->
+</head>

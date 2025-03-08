@@ -1,28 +1,39 @@
 ---
 import MainHead from '../components/MainHead.astro';
-import Nav from '../components/Nav.astro';
+import Nav from '../components/Nav.tsx';
 import Footer from '../components/Footer.astro';
 
 interface Props {
-	title?: string | undefined;
-	description?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
 }
 
-const { title, description } = Astro.props;
+const {title, description} = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<MainHead title={title} description={description} />
-	</head>
-	<body>
-      <Nav />
-        <slot />
-      <Footer />
+<MainHead title={title} description={description}/>
+<body>
+<Nav client:only="react" textLinks={[
+  {label: 'Home', href: '/'},
+  {label: 'About', href: '/about'},
+  {
+    label: 'Resources', href: '/resources', children: [
+      {label: 'Resource 1', href: '/resource-1'},
+      {label: 'Resource 2', href: '/resource-2'},
+      {label: 'Resource 3', href: '/resource-3'}
+    ]
+  }
+]} iconLinks={[
+  {label: 'Discord', href: 'https://discord.com/invite/your-invite', iconName: 'discord-logo'},
+  {label: 'GitHub', href: 'https://github.com/jmuzina/frostbreak', iconName: "github-logo"},
+]}/>
+<slot/>
+<Footer/>
 
-		<script>
-			// Add “loaded” class once the document has completely loaded.
-			addEventListener('load', () => document.documentElement.classList.add('loaded'));
-		</script>
-	</body>
+<script>
+  // Add “loaded” class once the document has completely loaded.
+  addEventListener('load', () => document.documentElement.classList.add('loaded'));
+</script>
+</body>
 </html>

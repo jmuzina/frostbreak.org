@@ -1,8 +1,11 @@
 ---
-import Hero from '../components/Hero.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Error from "../components/Error.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "404";
+const description = "Page not found";
 ---
 
-<BaseLayout title="Not Found" description="404 Error — this page was not found">
-	<Hero title="Page Not Found" tagline="Not found" />
+<BaseLayout title={title} description={description}>
+	<Error title={title} description={description}></Error>
 </BaseLayout>

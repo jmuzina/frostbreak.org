@@ -57,23 +57,48 @@
   --typography-font-size-small: 0.875rem;
   --typography-line-height-small: 1.5;
 
+  --spacing-grid-cols-small: 4;
+  --spacing-grid-cols-medium: 8;
+  --spacing-grid-cols-large: 12;
+  --spacing-grid-cols: var(--spacing-grid-cols-small);
+
+  --spacing-grid-column-gap-s: var(--spacing-s);
+  --spacing-grid-column-gap-m: var(--spacing-m);
+  --spacing-grid-column-gap-l: var(--spacing-l);
+  --spacing-grid-column-gap-xl: var(--spacing-xl);
+  --spacing-grid-column-gap: var(--spacing-grid-column-gap-s);
+
+  --spacing-grid-row-gap-s: var(--spacing-s);
+  --spacing-grid-row-gap-m: var(--spacing-m);
+  --spacing-grid-row-gap-l: var(--spacing-l);
+  --spacing-grid-row-gap-xl: var(--spacing-xl);
+  --spacing-grid-row-gap: var(--spacing-grid-row-gap-s);
+
   --spacing-body-padding: var(--spacing-s);
 }
 
 @media (--viewport-medium) {
   :root {
     --spacing-body-padding: var(--spacing-m);
+    --spacing-grid-cols: var(--spacing-grid-cols-medium);
+    --spacing-grid-column-gap: var(--spacing-grid-column-gap-m);
+    --spacing-grid-row-gap: var(--spacing-grid-row-gap-m);
   }
 }
 
 @media (--viewport-large) {
   :root {
     --spacing-body-padding: var(--spacing-l);
+    --spacing-grid-cols: var(--spacing-grid-cols-large);
+    --spacing-grid-column-gap: var(--spacing-grid-column-gap-l);
+    --spacing-grid-row-gap: var(--spacing-grid-row-gap-l);
   }
 }
 
 @media (--viewport-xlarge) {
   :root {
     --spacing-body-padding: var(--spacing-xl);
+    --spacing-grid-column-gap: var(--spacing-grid-column-gap-xl);
+    --spacing-grid-row-gap: var(--spacing-grid-row-gap-xl);
   }
 }
