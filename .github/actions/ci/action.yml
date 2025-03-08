@@ -1,11 +1,5 @@
 name: CI
 
-inputs:
-  environment:
-    required: true
-    description: "Environment"
-    type: string
-
 runs:
   using: "composite"
   steps:

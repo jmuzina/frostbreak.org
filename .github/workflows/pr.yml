@@ -16,4 +16,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: CI
-        uses: ./.github/actions/ci.yml
+        uses: ./.github/actions/ci
