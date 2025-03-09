@@ -19,6 +19,6 @@ const tagLine = "Connect with us on Discord";
     </Hero>
 </BaseLayout>
 
-<script is:inline>
-  window.location.href = DISCORD_INVITE_LINK;
+<script is:inline define:vars={{DISCORD_INVITE_LINK}}>
+  window.location.href = `${DISCORD_INVITE_LINK}`;
 </script>
