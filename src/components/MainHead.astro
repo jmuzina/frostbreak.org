@@ -4,11 +4,17 @@ import '../styles/global.css';
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
+  author?: string | undefined;
+  keywords?: string[] | undefined;
+  image?: string | undefined;
 }
 
 const {
 	title = 'Frostbreak',
 	description = 'A home for Buffalo\'s queer community.',
+  author = 'Frostbreak',
+  keywords = ['Buffalo', 'LGBTQ', 'queer', 'community', 'Frostbreak', 'discord', 'New York', 'Rochester'],
+  image = '/assets/frostbreak-logo-512x512.png'
 } = Astro.props;
 ---
 <head title={title}>
@@ -16,6 +22,10 @@ const {
 <meta name="description" property="og:description" content={description} />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content={Astro.generator} />
+<meta name="author" content={author} />
+<meta name="keywords" content={keywords.join(", ")} />
+<meta name="image" property="og:image" content={image} />
+
 <title>{title}</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,24 +48,4 @@ const {
 
 <meta name="theme-color" content="#ffffff">
 
-<!--<script is:inline>-->
-<!--	// This code is inlined in the head to make dark mode instant & blocking.-->
-<!--	const getThemePreference = () => {-->
-<!--		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {-->
-<!--			return localStorage.getItem('theme');-->
-<!--		}-->
-<!--		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';-->
-<!--	};-->
-<!--	const isDark = getThemePreference() === 'dark';-->
-<!--	document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');-->
-
-<!--	if (typeof localStorage !== 'undefined') {-->
-<!--		// Watch the document element and persist user preference when it changes.-->
-<!--		const observer = new MutationObserver(() => {-->
-<!--			const isDark = document.documentElement.classList.contains('theme-dark');-->
-<!--			localStorage.setItem('theme', isDark ? 'dark' : 'light');-->
-<!--		});-->
-<!--		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });-->
-<!--	}-->
-<!--</script>-->
 </head>

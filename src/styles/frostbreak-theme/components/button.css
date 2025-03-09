@@ -1,25 +1,34 @@
-.button,
-button {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  padding: 0.75em 1.5em;
-  border: none;
-  border-radius: 4px;
-  font-weight: var(--font-weight-medium);
-  cursor: pointer;
+.button.no-bg {
+  background: none;
 }
 
-.button:hover,
-button:hover {
-  background-color: var(--color-primary-dark);
+.button,
+button {
+  background-color: var(--color-input-background);
+  padding: var(--spacing-input-padding);
+  border: var(--border-input);
+  border-radius: var(--border-radius-input);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-input-background-hover);
+  }
+
+  &:focus {
+    background-color: var(--color-input-background-focus);
+    border: var(--border-input-focus);
+  }
 }
 
 .button.secondary,
 button.secondary {
   background-color: var(--color-secondary);
-}
 
-.button.secondary:hover,
-button.secondary:hover {
-  background-color: var(--color-secondary-dark);
+  &:hover {
+    background-color: var(--color-secondary-dark);
+  }
+
+  &:focus {
+  }
 }

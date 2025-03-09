@@ -1,28 +1,37 @@
 :root {
-  /* Colors */
-  --color-light-grey: #99d9eaff;
-  --color-blue: #7092beff;
-  --color-white: #ffffffff;
+  --color-white: #ffffff;
+  --color-grey: #e8e8e8;
+  --color-black: #000000;
+  --color-air-force-blue: #5f8695ff;
+  --color-light-blue: #a6d6e9ff;
+  --color-palatinate-blue: #3e47cbff;
   --color-silver: #c7c4c6ff;
-  --color-brown-sugar: #b97a57ff;
+  --color-brown-sugar: #ffa070;
+  --color-orange: #ff8a00;
+  --color-orange-100: #aa5d00;
+  --color-maize: #fff986;
+  --color-gold: #efe845;
 
-  --color-primary: #7092beff;
-  --color-primary-dark: #50729eff;
-  --color-primary-light: #a0c2eeff;
+  --color-primary: var(--color-maize);
+  --color-primary-alt: var(--color-gold);
+  --color-secondary: var(--color-air-force-blue);
+  --color-secondary-alt: var(--color-silver);
+  --color-tertiary: var(--color-brown-sugar);
 
-  --color-secondary: #b97a57ff;
-  --color-secondary-dark: #995a37ff;
-  --color-secondary-light: #d99a77ff;
+  --color-background: var(--color-light-blue);
+  --color-text-primary: var(--color-black);
+  --color-text-secondary: var(--color-secondary);
+  --color-border: var(--color-air-force-blue);
+  --color-border-focus: var(--color-secondary-alt);
 
-  --color-accent-1: #f0c808ff;
-  --color-accent-2: #60a860ff;
+  --color-input-background: var(--color-grey);
+  --color-input-background-hover: var(--color-white);
+  --color-input-background-focus: var(--color-input-background-hover);
+  --color-input-border-focus: var(--color-primary);
 
-  --color-background: #ffffffff;
-  --color-background-light: #99d9eaff;
-  --color-background-dark: #c7c4c6ff;
-  --color-text-primary: #333333ff;
-  --color-text-secondary: #666666ff;
-  --color-border: #c7c4c6ff;
+  --color-link: var(--color-orange);
+  --color-link-hover: var(--color-orange-100);
+  --color-link-visited: var(--color-secondary);
 
   /* Spacing */
   --sp-unit: 0.5rem;
@@ -31,6 +40,15 @@
   --spacing-m: calc(var(--sp-unit) * 4);
   --spacing-l: calc(var(--sp-unit) * 6);
   --spacing-xl: calc(var(--sp-unit) * 8);
+
+  --spacing-input-padding: var(--spacing-xs) var(--spacing-s);
+  --border-width: 1px;
+  --border-style: solid;
+
+  --border-input: var(--border-width) var(--border-style) var(--color-border);
+  --border-input-focus: var(--border-width) var(--border-style)
+    var(--color-border-focus);
+  --border-radius-input: var(--spacing-xs);
 
   /* Typography */
   --font-family: "Roboto", sans-serif;

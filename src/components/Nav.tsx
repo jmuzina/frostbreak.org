@@ -68,7 +68,10 @@ const Nav: React.FC<NavProps> = ({ textLinks, iconLinks, baseUrl = "" }) => {
           />
           Frostbreak
         </a>
-        <button className="nav__menu-button" onClick={handleMenuToggle}>
+        <button
+          className="button nav__menu-button no-bg"
+          onClick={handleMenuToggle}
+        >
           <span>Menu</span>
           <Icon icon="list" />
         </button>
