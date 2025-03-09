@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import {BASE_URL} from "../constants";
 
 interface Props {
 	title?: string | undefined;
@@ -14,7 +15,7 @@ const {
 	description = 'A home for Buffalo\'s queer community.',
   author = 'Frostbreak',
   keywords = ['Buffalo', 'LGBTQ', 'queer', 'community', 'Frostbreak', 'discord', 'New York', 'Rochester'],
-  image = '/assets/frostbreak-logo-512x512.png'
+  image = 'assets/frostbreak-logo-512x512.png'
 } = Astro.props;
 ---
 <head title={title}>
@@ -24,7 +25,7 @@ const {
 <meta name="generator" content={Astro.generator} />
 <meta name="author" content={author} />
 <meta name="keywords" content={keywords.join(", ")} />
-<meta name="image" property="og:image" content={image} />
+<meta name="image" property="og:image" content={`${BASE_URL}/${image}`} />
 
 <title>{title}</title>
 
