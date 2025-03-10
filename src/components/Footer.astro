@@ -1,14 +1,17 @@
 ---
-import UpcomingEvents from "./UpcomingEvents.astro";
+import CalendarComponent from "./CalendarComponent.astro";
 ---
 <footer class="footer">
     <div class="grid-row">
         <div class="grid-col-6 grid-col-md-4 footer-area">
-            <h4>Upcoming Events</h4>
-            <UpcomingEvents/>
+            <div class="footer-title-wrapper">
+                <h4>Upcoming Events</h4>
+                <a href="/calendar">See more &rsaquo;</a>
+            </div>
+            <CalendarComponent mode="AGENDA" height={300}/>
         </div>
-        <div class="grid-col-6 grid-col-md-4">
-            <div class="footer-area under-construction">
+        <div class="grid-col-6 grid-col-md-4 footer-area">
+            <div class="under-construction">
                 <h4>Under Construction</h4>
                 <p>This site is currently under construction.<br>Pages are subject to frequent change.</p>
                 <div class="silly-construction-assets">
@@ -19,16 +22,24 @@ import UpcomingEvents from "./UpcomingEvents.astro";
                         <img src="/assets/construction.gif" alt="It's the same image as before. For comedic effect.">
                     </div>
                 </div>
-                <!--This will likely be something else like internal links later?-->
             </div>
         </div>
     </div>
 </footer>
 
 <style>
+    .footer-title-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        & a {
+            margin-top: var(--spacing-xs);
+        }
+    }
     .footer-area {
         text-align: center;
-        padding: var(--spacing-m);
+        padding: var(--spacing-s);
         background-color: var(--color-background-alt);
         border-radius: var(--border-radius-input);
     }

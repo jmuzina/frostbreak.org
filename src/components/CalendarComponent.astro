@@ -1,0 +1,11 @@
+---
+import {GCAL_ID, GCAL_TZ_ID} from "../constants";
+interface Props {
+  mode?: "AGENDA" | "WEEK" | "MONTH"
+  height?: number
+}
+
+const { mode = "MONTH", height = 500 } = Astro.props;
+const GCAL_EMBED_LINK = `https://calendar.google.com/calendar/embed?mode=${mode}&src=${GCAL_ID}%40group.calendar.google.com&ctz=${GCAL_TZ_ID};`
+---
+<iframe src={GCAL_EMBED_LINK} style="border: 0" width="100%" height={height} frameborder="0" scrolling="no"></iframe>

@@ -17,14 +17,7 @@ const {title, description} = Astro.props;
 <body>
 <Nav client:only="react" textLinks={[
   {label: 'Home', href: '/'},
-  {label: 'About', href: '/about'},
-  {
-    label: 'Resources', href: '/resources', children: [
-      {label: 'Resource 1', href: '/resource-1'},
-      {label: 'Resource 2', href: '/resource-2'},
-      {label: 'Resource 3', href: '/resource-3'}
-    ]
-  }
+  {label: 'Calendar', href: '/calendar'}
 ]} iconLinks={[
   {label: 'Discord', href: '/discord', iconName: 'discord-logo'},
   {label: 'GitHub', href: GITHUB_REPO_URL, iconName: "github-logo"},
