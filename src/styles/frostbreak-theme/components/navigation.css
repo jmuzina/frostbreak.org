@@ -73,6 +73,7 @@
   display: flex;
   gap: var(--spacing-s);
   margin-left: auto;
+  margin-top: var(--spacing-s);
 }
 
 .nav__social {
@@ -119,6 +120,10 @@
     flex-direction: row;
     align-items: center;
     /*justify-content: space-between;*/
+  }
+
+  .nav__socials {
+    margin-top: 0;
   }
 
   .nav__items {
