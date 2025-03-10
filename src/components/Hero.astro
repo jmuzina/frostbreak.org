@@ -2,15 +2,16 @@
 interface Props {
 	title: string;
 	tagline?: string;
+	alignment?: 'left' | 'center' | 'right';
 }
 
-const { tagline, title } = Astro.props;
+const { tagline, title, alignment } = Astro.props;
+
+const alignmentClass = alignment ? `text-${alignment}` : '';
 ---
 
 <div class="hero">
-	<div class="stack gap-2">
-		<h2 class="title">{title}</h2>
-		{tagline && <p>{tagline}</p>}
-	</div>
+	<h2 class={`section-title ${alignmentClass}`}>{title}</h2>
+	{tagline && <p>{tagline}</p>}
 	<slot />
 </div>
