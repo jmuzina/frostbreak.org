@@ -9,9 +9,6 @@ const { tagline, title, alignment } = Astro.props;
 
 const alignmentClass = alignment ? `text-${alignment}` : '';
 ---
-
-<div class="hero">
-	<h2 class={`section-title ${alignmentClass}`}>{title}</h2>
-	{tagline && <p>{tagline}</p>}
-	<slot />
-</div>
+<h2 class={`section-title ${alignmentClass}`}>{title}</h2>
+{tagline && <p>{tagline}</p>}
+<slot />
