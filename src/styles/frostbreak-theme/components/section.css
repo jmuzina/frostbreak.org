@@ -6,5 +6,8 @@ section,
     var(--spacing-section-padding-horizontal);
   margin-bottom: var(--spacing-section-margin-bottom);
   margin-top: var(--spacing-section-margin-top);
-  border-bottom: 1px solid var(--color-text-secondary);
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid var(--color-text-secondary);
+  }
 }

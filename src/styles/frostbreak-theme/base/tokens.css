@@ -4,6 +4,7 @@
   --color-black: #000000;
   --color-air-force-blue: #5f8695ff;
   --color-light-blue: #a6d6e9ff;
+  --color-lighter-blue: #bae8fa;
   --color-palatinate-blue: #3e47cbff;
   --color-silver: #c7c4c6ff;
   --color-brown-sugar: #ffa070;
@@ -19,6 +20,7 @@
   --color-tertiary: var(--color-brown-sugar);
 
   --color-background: var(--color-light-blue);
+  --color-background-alt: var(--color-lighter-blue);
   --color-text-primary: var(--color-black);
   --color-text-secondary: var(--color-secondary);
   --color-border: var(--color-air-force-blue);

@@ -29,8 +29,12 @@ const {title, description} = Astro.props;
   {label: 'Discord', href: '/discord', iconName: 'discord-logo'},
   {label: 'GitHub', href: GITHUB_REPO_URL, iconName: "github-logo"},
 ]}/>
+
 <slot/>
-<Footer/>
+
+<section>
+  <Footer/>
+</section>
 
 <script>
   // Add “loaded” class once the document has completely loaded.
