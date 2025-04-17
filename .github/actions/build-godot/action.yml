@@ -1,0 +1,21 @@
+name: Build Godot
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install Godot
+      shell: bash
+      run: ${{ github.action_path }}/install-godot.sh
+
+    - name: Build Godot
+      shell: bash
+      run: |
+        mkdir -p nhe_godot_src/build/web
+        ./godot --headless --path nhe_godot_src --export-release "Web"
+        mv nhe_godot_src/build/web public/experience
+
+    - name: Archive Godot build
+      uses: actions/upload-artifact@v4
+      with:
+        path: public/experience
+        name: godot-web-build

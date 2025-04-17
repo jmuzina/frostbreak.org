@@ -14,3 +14,6 @@ runs:
     - name: Build
       run: npm run build
       shell: bash
+
+    - name: Godot
+      uses: ./.github/actions/build-godot
