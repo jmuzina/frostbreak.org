@@ -1,17 +1,6 @@
-name: Push to branches
-
+name: Manually rebuild Godot
 on:
-  push:
-    branches:
-      - main
-      - dev
-    paths:
-      - src/**
-      - public/**
-      - package.json
-      - package-lock.json
-      - astro.config.mjs
-
+  workflow_dispatch:
 jobs:
   build:
     name: Build
@@ -22,14 +11,10 @@ jobs:
         with:
           submodules: recursive
 
-      - name: CI
-        uses: ./.github/actions/ci
-
       - name: Build Godot
         uses: ./.github/actions/build-godot
 
-      - name: Deploy
-        if: github.ref == 'refs/heads/main'
+      - name: Deploy to AWS
         uses: ./.github/actions/aws
         with:
           AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
@@ -37,3 +22,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
+          cloudfront_invalidation: public/experience
+          s3_workdir_path: public/experience
