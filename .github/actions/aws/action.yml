@@ -6,6 +6,10 @@ inputs:
     required: true
     description: "Path to the directory containing the web artifact to deploy"
     default: "dist"
+  s3_workdir_path:
+    required: true
+    description: "Path to where in S3 should be replaced by this action"
+    default: .
   cloudfront_invalidation:
     required: true
     description: "Path or pattern within your web artifact for which to create a CloudFront invalidation"
@@ -40,7 +44,7 @@ runs:
       shell: bash
       working-directory: ${{ inputs.dist_path }}
       run: |
-        aws s3 sync . s3://${{ inputs.AWS_S3_BUCKET_NAME }} --acl public-read --delete
+        aws s3 sync ${{ inputs.s3_workdir_path }} s3://${{ inputs.AWS_S3_BUCKET_NAME }} --acl public-read --delete
 
     - name: Invalidate CloudFront Distribution
       shell: bash
