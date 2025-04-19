@@ -11,12 +11,11 @@ runs:
       shell: bash
       run: |
         mkdir -p nhe_godot_src/build/web
-        mkdir -p dist
         ./godot --headless --path nhe_godot_src --export-release "Web"
-        mv nhe_godot_src/build/web dist/experience
+        mv nhe_godot_src/build/web public/experience
 
     - name: Archive Godot build
       uses: actions/upload-artifact@v4
       with:
-        path: dist/experience
+        path: public/experience
         name: godot-web-build

@@ -5,6 +5,12 @@ on:
     branches:
       - main
       - dev
+    paths:
+      - src/**
+      - public/**
+      - package.json
+      - package-lock.json
+      - astro.config.mjs
 
 jobs:
   build:
