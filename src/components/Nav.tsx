@@ -5,6 +5,7 @@ import type { iconPaths } from "./IconPaths.ts";
 export interface BaseNavItem {
   label: string;
   href?: string;
+  target?: string;
 }
 
 export interface TextNavItem extends BaseNavItem {
@@ -85,7 +86,7 @@ const Nav: React.FC<NavProps> = ({ textLinks, iconLinks, baseUrl = "" }) => {
         // }}
       >
         <ul className="nav__items">
-          {textLinks.map(({ label, href, children }) => (
+          {textLinks.map(({ label, href, children, target }) => (
             <li key={label} className="nav__items-item text-center">
               {children ? (
                 <details>
@@ -96,19 +97,26 @@ const Nav: React.FC<NavProps> = ({ textLinks, iconLinks, baseUrl = "" }) => {
                     {label}
                   </summary>
                   <ul className="nav__dropdown">
-                    {children.map(({ label: childLabel, href: childHref }) => (
-                      <li key={childLabel} className="nav__dropdown-item">
-                        <a
-                          aria-current={
-                            isCurrentPage(childHref) ? "page" : undefined
-                          }
-                          className="link"
-                          href={childHref}
-                        >
-                          {childLabel}
-                        </a>
-                      </li>
-                    ))}
+                    {children.map(
+                      ({
+                        label: childLabel,
+                        href: childHref,
+                        target: childTarget,
+                      }) => (
+                        <li key={childLabel} className="nav__dropdown-item">
+                          <a
+                            aria-current={
+                              isCurrentPage(childHref) ? "page" : undefined
+                            }
+                            className="link"
+                            href={childHref}
+                            target={childTarget}
+                          >
+                            {childLabel}
+                          </a>
+                        </li>
+                      ),
+                    )}
                   </ul>
                 </details>
               ) : (
@@ -116,6 +124,7 @@ const Nav: React.FC<NavProps> = ({ textLinks, iconLinks, baseUrl = "" }) => {
                   aria-current={isCurrentPage(href) ? "page" : undefined}
                   className="link"
                   href={href}
+                  target={target}
                 >
                   {label}
                 </a>

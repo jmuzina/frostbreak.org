@@ -5,8 +5,8 @@ import Footer from '../components/Footer.astro';
 import {GITHUB_REPO_URL} from "../constants";
 
 interface Props {
-  title?: string | undefined;
-  description?: string | undefined;
+    title?: string | undefined;
+    description?: string | undefined;
 }
 
 const {title, description} = Astro.props;
@@ -16,22 +16,23 @@ const {title, description} = Astro.props;
 <MainHead title={title} description={description}/>
 <body>
 <Nav client:only="react" textLinks={[
-  {label: 'Home', href: '/'},
-  {label: 'Calendar', href: '/calendar'}
+    {label: 'Home', href: '/'},
+    {label: 'Calendar', href: '/calendar'},
+    {label: 'Experience', href: 'https://nhx.frostbreak.org', target: '_blank'},
 ]} iconLinks={[
-  {label: 'Discord', href: '/discord', iconName: 'discord-logo'},
-  {label: 'GitHub', href: GITHUB_REPO_URL, iconName: "github-logo"},
+    {label: 'Discord', href: '/discord', iconName: 'discord-logo'},
+    {label: 'GitHub', href: GITHUB_REPO_URL, iconName: "github-logo"},
 ]}/>
 
 <slot/>
 
 <section>
-  <Footer/>
+    <Footer/>
 </section>
 
 <script>
-  // Add “loaded” class once the document has completely loaded.
-  addEventListener('load', () => document.documentElement.classList.add('loaded'));
+    // Add “loaded” class once the document has completely loaded.
+    addEventListener('load', () => document.documentElement.classList.add('loaded'));
 </script>
 </body>
 </html>
