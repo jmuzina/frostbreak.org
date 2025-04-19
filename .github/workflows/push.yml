@@ -1,6 +1,5 @@
 name: Push to branches
-permissions:
-  contents: write
+
 on:
   push:
     branches:
