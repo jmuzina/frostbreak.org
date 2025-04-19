@@ -4,9 +4,6 @@ inputs:
     required: true
     description: "Path to the directory containing the web artifact to deploy"
     default: "dist"
-  github_token:
-    required: true
-    description: "Github token for authentication"
 runs:
   using: "composite"
   steps:
