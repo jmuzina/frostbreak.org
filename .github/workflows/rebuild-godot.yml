@@ -22,5 +22,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          cloudfront_invalidation: "/experience/*"
-          include_paths: "experience/*"
+          cloudfront_invalidation: dist/experience/*
+          dist_path: dist/experience
