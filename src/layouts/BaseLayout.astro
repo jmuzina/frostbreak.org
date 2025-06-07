@@ -15,6 +15,7 @@ const {title, description} = Astro.props;
 <html lang="en">
 <MainHead title={title} description={description}/>
 <body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
 <Nav client:only="react" textLinks={[
     {label: 'Home', href: '/'},
     {label: 'Calendar', href: '/calendar'},
@@ -24,7 +25,11 @@ const {title, description} = Astro.props;
     {label: 'GitHub', href: GITHUB_REPO_URL, iconName: "github-logo"},
 ]}/>
 
-<slot/>
+<main id="main-content" class="main-content">
+    {title && <h1 class="visually-hidden">{title}</h1>}
+    {description && <p class="visually-hidden">{description}</p>}
+    <slot/>
+</main>
 
 <section>
     <Footer/>
