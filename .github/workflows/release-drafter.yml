@@ -1,0 +1,31 @@
+name: Release Drafter
+
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+
+jobs:
+  update_release_draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: package.json
+
+      - name: Get version number from package.json
+        id: get_version
+        shell: bash
+        run: echo "version_number=$(jq -r '.version' package.json)" >> $GITHUB_OUTPUT
+
+      - name: Draft release notes for v${{ steps.get_version.outputs.version_number }}
+        uses: release-drafter/release-drafter@v6
+        with:
+          tag: v${{ steps.get_version.outputs.version_number }}
+          name: v${{ steps.get_version.outputs.version_number }}
+          commitish: main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
