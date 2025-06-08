@@ -12,7 +12,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     outputs:
-      ENV_NAME: ${{ steps.compute_env.outputs.ENV_NAME }}
+      PAGES_PATH: ${{ steps.compute_env.outputs.PAGES_PATH }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
