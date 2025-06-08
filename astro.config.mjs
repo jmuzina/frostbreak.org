@@ -6,7 +6,7 @@ import browserslist from "browserslist";
 
 const { PR_PREVIEW_PREFIX } = process.env;
 
-const base = PR_PREVIEW_PREFIX?.length ? `/${PR_PREVIEW_PREFIX}/` : "/dev/";
+const base = PR_PREVIEW_PREFIX?.length ? `/${PR_PREVIEW_PREFIX}/` : "/";
 
 // https://astro.build/config
 export default defineConfig({
