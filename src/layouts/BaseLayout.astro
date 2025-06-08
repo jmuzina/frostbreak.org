@@ -10,6 +10,7 @@ interface Props {
 }
 
 const {title, description} = Astro.props;
+const { BASE_URL } = import.meta.env;
 ---
 
 <html lang="en">
@@ -17,11 +18,11 @@ const {title, description} = Astro.props;
 <body>
 <a href="#main-content" class="skip-nav">Skip to main content</a>
 <Nav client:only="react" textLinks={[
-    {label: 'Home', href: '/'},
-    {label: 'Calendar', href: '/calendar'},
+    {label: 'Home', href: BASE_URL},
+    {label: 'Calendar', href: `${BASE_URL}calendar`},
     {label: 'Experience', href: 'https://nhx.frostbreak.org', target: '_blank'},
 ]} iconLinks={[
-    {label: 'Discord', href: '/discord', iconName: 'discord-logo'},
+    {label: 'Discord', href: `${BASE_URL}discord`, iconName: 'discord-logo'},
     {label: 'GitHub', href: GITHUB_REPO_URL, iconName: "github-logo"},
 ]}/>
 
