@@ -18,13 +18,6 @@ const {
   image = 'assets/frostbreak-logo-512x512.png'
 } = Astro.props;
 
-const { PR_PREVIEW_PREFIX } = process.env;
-
-const base = PR_PREVIEW_PREFIX?.length
-  ?  `https://jmuzina.github.io/frostbreak.org/${PR_PREVIEW_PREFIX}/`
-  : "/";
-
-console.log({ base });
 ---
 <head title={title}>
 <meta charset="UTF-8" />
@@ -34,7 +27,6 @@ console.log({ base });
 <meta name="author" content={author} />
 <meta name="keywords" content={keywords.join(", ")} />
 <meta name="image" property="og:image" content={`${BASE_URL}/${image}`} />
-<!--<base href={base} />-->
 
 <title>{title}</title>
 
