@@ -21,18 +21,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install deps
-        run: npm ci
+      - name: CI
+        uses: ./.github/actions/ci
+        env:
+          PR_PREVIEW_PREFIX: frostbreak.org/pr-preview/pr-${{ github.event.pull_request.number }}
 
-        # If we use the CI action, the dist/__astro folder will be ignored by GH Jekyll.
-        # Astro has their own action that makes a GH pages-friendly build output.
-      - name: Build for GH Pages
-        if: github.event.action != 'closed'
-        uses: withastro/action@v4
+      - name: Replace _astro with astro for jekyll compatibility
+        working-directory: dist
+        run: |
+          find . -type f -exec bash -c 'LC_ALL=C sed -i "" -e "s/_astro\//assets\//g" "$1"' _ {} \;
+          mv _astro/* assets/.
+          rm -rf _astro
 
       - name: Deploy preview
         id: deploy-preview
         uses: rossjrw/pr-preview-action@v1.6.1
         with:
-          source-dir: ./dist
+          source-dir: dist
           token: ${{ github.token }}
+#      - name: Deploy to pages
+#        uses: actions/deploy-pages@v4.0.5
