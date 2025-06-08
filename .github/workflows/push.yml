@@ -49,7 +49,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
-          ref: github-pages
+          ref: gh-pages
 
       - name: Download Pages artifact
         uses: actions/download-artifact@v4
@@ -63,4 +63,4 @@ jobs:
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add ${{ needs.build.outputs.PAGES_PATH }}
           git commit -m "Deploy to GitHub Pages from ${{ github.ref }}"
-          git push origin github-pages
+          git push origin gh-pages
