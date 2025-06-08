@@ -17,11 +17,11 @@ const {title, description} = Astro.props;
 <body>
 <a href="#main-content" class="skip-nav">Skip to main content</a>
 <Nav client:only="react" textLinks={[
-    {label: 'Home', href: '/'},
-    {label: 'Calendar', href: '/calendar'},
+    {label: 'Home', href: ''},
+    {label: 'Calendar', href: 'calendar'},
     {label: 'Experience', href: 'https://nhx.frostbreak.org', target: '_blank'},
 ]} iconLinks={[
-    {label: 'Discord', href: '/discord', iconName: 'discord-logo'},
+    {label: 'Discord', href: 'discord', iconName: 'discord-logo'},
     {label: 'GitHub', href: GITHUB_REPO_URL, iconName: "github-logo"},
 ]}/>
 

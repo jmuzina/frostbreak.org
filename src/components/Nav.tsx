@@ -19,23 +19,22 @@ export interface IconNavItem extends BaseNavItem {
 export interface NavProps {
   textLinks: TextNavItem[];
   iconLinks: IconNavItem[];
-  baseUrl?: string;
 }
 
 const isSsr = typeof window === "undefined";
 
 const { BASE_URL } = import.meta.env;
 
-const Nav: React.FC<NavProps> = ({ textLinks, iconLinks, baseUrl = "" }) => {
+const Nav: React.FC<NavProps> = ({ textLinks, iconLinks }) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
 
   const isCurrentPage = (href?: string): string | boolean => {
-    if (!href) return false;
-    let pathname = window.location.pathname.replace(baseUrl, "");
-    if (pathname.charAt(0) !== "/") pathname = "/" + pathname;
-    if (pathname.charAt(pathname.length - 1) !== "/") pathname += "/";
+    let pathname = window.location.pathname.replace(BASE_URL, "");
+
+    if (!href) return pathname === "";
+
     return pathname === href || (href !== "/" && pathname.startsWith(href));
   };
 
@@ -62,7 +61,7 @@ const Nav: React.FC<NavProps> = ({ textLinks, iconLinks, baseUrl = "" }) => {
   return (
     <nav ref={navRef} className="nav">
       <div className="nav__header">
-        <a href="/" className="nav__site-title">
+        <a href={BASE_URL} className="nav__site-title">
           <img
             src={`${BASE_URL}assets/frostbreak-logo-64x64.png`}
             width="32"
@@ -111,7 +110,7 @@ const Nav: React.FC<NavProps> = ({ textLinks, iconLinks, baseUrl = "" }) => {
                               isCurrentPage(childHref) ? "page" : undefined
                             }
                             className="link"
-                            href={childHref}
+                            href={`${BASE_URL}${childHref}`}
                             target={childTarget}
                           >
                             {childLabel}
@@ -125,7 +124,7 @@ const Nav: React.FC<NavProps> = ({ textLinks, iconLinks, baseUrl = "" }) => {
                 <a
                   aria-current={isCurrentPage(href) ? "page" : undefined}
                   className="link"
-                  href={href}
+                  href={`${BASE_URL}${href}`}
                   target={target}
                 >
                   {label}
