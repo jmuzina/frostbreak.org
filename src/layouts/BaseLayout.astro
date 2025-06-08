@@ -5,7 +5,10 @@ import Footer from '../components/Footer.astro';
 import {GITHUB_REPO_URL} from "../constants";
 
 interface Props {
-    title?: string | undefined;
+    title: {
+        hidden?: boolean;
+        text: string;
+    }
     description?: string | undefined;
 }
 
@@ -13,11 +16,12 @@ const {title, description} = Astro.props;
 ---
 
 <html lang="en">
-<MainHead title={title} description={description}/>
+<MainHead title={title.text} description={description}/>
 <body>
 <a href="#main-content" class="skip-nav">Skip to main content</a>
 <Nav client:only="react" textLinks={[
     {label: 'Home', href: '/'},
+    {label: 'About', href: '/about'},
     {label: 'Calendar', href: '/calendar'},
     {label: 'Experience', href: 'https://nhx.frostbreak.org', target: '_blank'},
 ]} iconLinks={[
@@ -26,8 +30,9 @@ const {title, description} = Astro.props;
 ]}/>
 
 <main id="main-content" class="main-content">
-    {title && <h1 class="visually-hidden">{title}</h1>}
-    {description && <p class="visually-hidden">{description}</p>}
+      <section class={`section u-no-border--bottom ${title.hidden ? ' u-visually-hidden' : ''}`}>
+          <h2>{title.text}</h2>
+      </section>
     <slot/>
 </main>
 

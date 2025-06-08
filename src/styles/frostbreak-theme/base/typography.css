@@ -1,8 +1,8 @@
 html {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-root);
   line-height: var(--line-height-base);
   font-family: var(--font-family), sans-serif;
-  color: var(--color-text-primary);
+  color: var(--color-text-default);
 }
 
 h1,
@@ -51,7 +51,9 @@ h6 {
 }
 
 p {
-  margin-bottom: 1em;
+  font-size: var(--typography-font-size-p);
+  line-height: var(--typography-line-height-p);
+  margin-bottom: var(--spacing-xs);
 }
 
 small,
