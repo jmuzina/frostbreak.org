@@ -57,8 +57,8 @@ jobs:
           name: github-pages
           path: ${{ needs.build.outputs.PAGES_PATH }}
 
-      - name: RM artifact tar
-        run: rm artifact.tar
+      - name: Extract and remove artifact tar
+        run: tar -xvf artifact.tar && rm artifact.tar
 
       - name: Commit environment
         run: |
