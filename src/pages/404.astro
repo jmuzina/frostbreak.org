@@ -6,7 +6,7 @@ const title = "404";
 const description = "Page not found";
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={{text: title}} description={description}>
 	<section>
 		<Error title={title} description={description}></Error>
 	</section>
