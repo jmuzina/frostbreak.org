@@ -1,5 +1,7 @@
 ---
 import CalendarComponent from "./CalendarComponent.astro";
+
+const { BASE_URL } = import.meta.env;
 ---
 <footer class="footer">
     <div class="grid-row">
@@ -15,11 +17,11 @@ import CalendarComponent from "./CalendarComponent.astro";
                 <h4>Under Construction</h4>
                 <p>This site is currently under construction.<br>Pages are subject to frequent change.</p>
                 <div class="silly-construction-assets">
-                    <img src="assets/pikaconstruction.gif" alt="Pikachu in a construction hat operating a jackhammer that she is comically underqualified to operate.">
+                    <img src={`${BASE_URL}/assets/pikaconstruction.gif`} alt="Pikachu in a construction hat operating a jackhammer that she is comically underqualified to operate.">
                     <div class="repeated-construction-row">
-                        <img src="assets/construction.gif" alt="A construction sign with a cartoon worker digging.">
-                        <img src="assets/construction.gif" alt="The same as the previous construction sign.">
-                        <img src="assets/construction.gif" alt="It's the same image as before. For comedic effect.">
+                        <img src={`${BASE_URL}/assets/construction.gif`} alt="A construction sign with a cartoon worker digging.">
+                        <img src={`${BASE_URL}/assets/construction.gif`} alt="The same as the previous construction sign.">
+                        <img src={`${BASE_URL}/assets/construction.gif`} alt="It's the same image as before. For comedic effect.">
                     </div>
                 </div>
             </div>
