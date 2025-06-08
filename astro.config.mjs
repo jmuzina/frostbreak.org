@@ -27,5 +27,5 @@ export default defineConfig({
       cssMinify: "lightningcss",
     },
   },
-  base: `/${base}/`,
+  // base: `/${base}/`,
 });
