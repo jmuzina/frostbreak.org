@@ -8,8 +8,6 @@ const { PR_PREVIEW_PREFIX } = process.env;
 
 const base = PR_PREVIEW_PREFIX?.length ? PR_PREVIEW_PREFIX : "";
 
-console.log({ base });
-
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
