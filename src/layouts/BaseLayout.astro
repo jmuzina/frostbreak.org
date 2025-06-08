@@ -5,26 +5,36 @@ import Footer from '../components/Footer.astro';
 import {GITHUB_REPO_URL} from "../constants";
 
 interface Props {
-    title?: string | undefined;
+    title: {
+        hidden?: boolean;
+        text: string;
+    }
     description?: string | undefined;
 }
-
 const {title, description} = Astro.props;
+const { BASE_URL } = import.meta.env;
 ---
 
 <html lang="en">
-<MainHead title={title} description={description}/>
+<MainHead title={title.text} description={description}/>
 <body>
+<a href="#main-content" class="skip-nav">Skip to main content</a>
 <Nav client:only="react" textLinks={[
-    {label: 'Home', href: '/'},
-    {label: 'Calendar', href: '/calendar'},
+    {label: 'Home', href: BASE_URL},
+    {label: 'About', href: `${BASE_URL}about`},
+    {label: 'Calendar', href: `${BASE_URL}calendar`},
     {label: 'Experience', href: 'https://nhx.frostbreak.org', target: '_blank'},
 ]} iconLinks={[
-    {label: 'Discord', href: '/discord', iconName: 'discord-logo'},
+    {label: 'Discord', href: `${BASE_URL}discord`, iconName: 'discord-logo'},
     {label: 'GitHub', href: GITHUB_REPO_URL, iconName: "github-logo"},
 ]}/>
 
-<slot/>
+<main id="main-content" class="main-content">
+      <section class={`section u-no-border--bottom ${title.hidden ? ' u-visually-hidden' : ''}`}>
+          <h2>{title.text}</h2>
+      </section>
+    <slot/>
+</main>
 
 <section>
     <Footer/>

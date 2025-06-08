@@ -1,7 +1,7 @@
 {
   "name": "frostbreak.org",
   "description": "A home for Buffalo's queer community.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Frostbreak",
   "type": "module",
   "scripts": {
@@ -13,20 +13,20 @@
     "lint:fix": "eslint --fix && prettier -c -w ."
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "^4.2.1",
-    "@eslint/js": "^9.24.0",
-    "@typescript-eslint/parser": "^8.30.1",
-    "astro": "^5.7.4",
-    "browserslist": "^4.24.4",
-    "eslint": "^9.22.0",
-    "eslint-plugin-astro": "^1.3.1",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "lightningcss": "^1.29.3",
-    "normalize.css": "^8.0.1",
-    "prettier": "^3.5.3",
-    "reset-css": "^5.0.2",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.30.1"
+    "@astrojs/check": "0.9.4",
+    "@astrojs/react": "4.3.0",
+    "@eslint/js": "9.28.0",
+    "@typescript-eslint/parser": "8.33.1",
+    "astro": "5.9.1",
+    "browserslist": "4.25.0",
+    "eslint": "9.28.0",
+    "eslint-plugin-astro": "1.3.1",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "lightningcss": "1.30.1",
+    "normalize.css": "8.0.1",
+    "prettier": "3.5.3",
+    "reset-css": "5.0.2",
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.33.1"
   }
 }

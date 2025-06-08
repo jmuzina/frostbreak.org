@@ -1,0 +1,4 @@
+.u-visually-hidden {
+  visibility: hidden;
+  position: absolute;
+}
