@@ -10,6 +10,9 @@
   --color-brown-sugar: #ffa070;
   --color-orange: #dd7902;
   --color-orange-100: #aa5d00;
+  --color-orange-200: #a36814;
+  --color-purple-100: #8d0097;
+  --color-purple-200: #a806b3;
   --color-maize: #fff986;
   --color-gold: #efe845;
 
@@ -21,19 +24,19 @@
 
   --color-background: var(--color-light-blue);
   --color-background-alt: var(--color-lighter-blue);
-  --color-text-primary: var(--color-black);
+  --color-text-default: var(--color-black);
   --color-text-secondary: var(--color-secondary);
   --color-border: var(--color-air-force-blue);
   --color-border-focus: var(--color-secondary-alt);
 
   --color-input-background: var(--color-grey);
-  --color-input-background-hover: var(--color-white);
+  --color-input-background-hover: var(--color-gold);
   --color-input-background-focus: var(--color-input-background-hover);
   --color-input-border-focus: var(--color-primary);
 
   --color-link: var(--color-orange);
   --color-link-hover: var(--color-orange-100);
-  --color-link-visited: var(--color-secondary);
+  --color-link-visited: var(--color-purple-100);
 
   /* Spacing */
   --sp-unit: 0.5rem;
@@ -64,6 +67,7 @@
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
+  --font-size-root: 1rem;
   --font-size-base: 16px;
   --line-height-base: 1.6;
 
@@ -79,6 +83,8 @@
   --typography-line-height-h5: 1.6;
   --typography-font-size-h6: 1rem;
   --typography-line-height-h6: 1.6;
+  --typography-font-size-p: 1rem;
+  --typography-line-height-p: 1.4;
 
   --typography-font-size-small: 0.875rem;
   --typography-line-height-small: 1.5;
