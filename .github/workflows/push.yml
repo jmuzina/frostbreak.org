@@ -15,24 +15,28 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    outputs:
+      ENV_NAME: ${{ steps.compute_env.outputs.ENV_NAME }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Compute base url
-        id: base_url
+      - name: Compute environment
+        id: compute_env
         run: |
           echo "REF IS ${{ github.ref }}"
           if [ "${{ github.ref }}" == "refs/heads/main" ]; then
             echo "BASE_URL=frostbreak.org" >> $GITHUB_OUTPUT
+            echo "PAGES_PATH=." >> $GITHUB_OUTPUT
           else
             echo "BASE_URL=frostbreak.org/staging" >> $GITHUB_OUTPUT
+            echo "PAGES_PATH=staging" >> $GITHUB_OUTPUT
           fi
 
       - name: CI
         uses: ./.github/actions/ci
         env:
-          BASE_URL: ${{ steps.base_url.outputs.BASE_URL }}
+          BASE_URL: ${{ steps.compute_env.outputs.BASE_URL }}
         with:
           pages: true
   deploy:
@@ -43,6 +47,21 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          ref: github-pages
+
+      - name: Download Pages artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: ${{ needs.build.outputs.PAGES_PATH }}
+
+      - name: Commit environment
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git add ${{ needs.build.outputs.PAGES_PATH }}
+          git commit -m "Deploy to GitHub Pages from ${{ github.ref }}"
+          git push origin github-pages
