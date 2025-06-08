@@ -11,6 +11,9 @@ const base = PR_PREVIEW_PREFIX?.length ? PR_PREVIEW_PREFIX : "";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
+  build: {
+    assets: "astroAssets",
+  },
   vite: {
     css: {
       transformer: "lightningcss",
