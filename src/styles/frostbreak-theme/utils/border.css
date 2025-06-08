@@ -1,0 +1,19 @@
+.u-no-border {
+  border: none !important;
+}
+
+.u-no-border--bottom {
+  border-bottom: none !important;
+}
+
+.u-no-border--top {
+  border-top: none !important;
+}
+
+.u-no-border--left {
+  border-left: none !important;
+}
+
+.u-no-border--right {
+  border-right: none !important;
+}

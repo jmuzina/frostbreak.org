@@ -2,7 +2,7 @@
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--color-text-primary);
+  background: var(--color-text-default);
   color: var(--color-background);
   padding: var(--spacing-xs);
   z-index: 100;
@@ -35,7 +35,7 @@
 .nav__items-item summary {
   display: block;
   padding: var(--spacing-s);
-  color: var(--color-text-primary);
+  color: var(--color-text-default);
   text-decoration: none;
   cursor: pointer;
 }
@@ -59,7 +59,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-s);
-  color: var(--color-text-primary) !important;
+  color: var(--color-text-default) !important;
   text-decoration: none;
   font-weight: var(--font-weight-bold);
   font-size: 1.2rem;
@@ -92,7 +92,12 @@
 
 .nav__social {
   font-size: 1.5rem;
-  color: var(--color-white);
+  &,
+  &:visited {
+    &:not(:hover) {
+      color: var(--color-text-default);
+    }
+  }
 }
 
 .nav__menu {
@@ -119,7 +124,7 @@
 .nav__dropdown-item a {
   display: block;
   padding: var(--spacing-s) var(--spacing-l);
-  color: var(--color-text-primary);
+  color: var(--color-text-default);
   text-decoration: none;
 }
 

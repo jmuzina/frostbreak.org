@@ -1,34 +1,43 @@
-.button.no-bg {
-  background: none;
-}
+button,
+.button {
+  --color-button-background: var(--color-input-background);
+  --color-button-background-hover: var(--color-input-background-hover);
+  --color-button-background-focus: var(--color-input-background-focus);
+  --color-button-text: var(--color-text-default);
+  --color-button-background-primary: var(--color-primary);
+  --color-button-background-secondary: var(--color-secondary);
+  --border-button: var(--border-input);
+  --border-button-focus: var(--border-input-focus);
 
-.button,
-button {
-  background-color: var(--color-input-background);
-  padding: var(--spacing-input-padding);
-  border: var(--border-input);
+  background-color: var(--color-button-background);
+  border: var(--border-button);
   border-radius: var(--border-radius-input);
-  font-weight: var(--font-weight-medium);
+  color: var(--color-button-text);
   cursor: pointer;
+  display: inline-block;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-xs);
+  padding: var(--spacing-input-padding);
+
+  &.no-bg {
+    background: none;
+  }
+
+  &.primary {
+    --color-button-background: var(--color-button-background-primary);
+    --color-button-background-hover: var(--color-primary-alt);
+  }
+
+  &.secondary {
+    --color-button-background: var(--color-button-background-secondary);
+  }
 
   &:hover {
-    background-color: var(--color-input-background-hover);
+    background-color: var(--color-button-background-hover);
   }
 
   &:focus {
-    background-color: var(--color-input-background-focus);
-    border: var(--border-input-focus);
-  }
-}
-
-.button.secondary,
-button.secondary {
-  background-color: var(--color-secondary);
-
-  &:hover {
-    background-color: var(--color-secondary-dark);
-  }
-
-  &:focus {
+    --color-button-background: var(--color-button-background-focus);
+    --button-border: var(--border-button-focus);
   }
 }

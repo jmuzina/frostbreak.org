@@ -7,7 +7,7 @@ section,
   margin-bottom: var(--spacing-section-margin-bottom);
   margin-top: var(--spacing-section-margin-top);
 
-  &:not(:last-of-type) {
+  &:not(:last-of-type):not(.u-visually-hidden) {
     border-bottom: 1px solid var(--color-text-secondary);
   }
 }
