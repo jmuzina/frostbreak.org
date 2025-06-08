@@ -16,12 +16,20 @@ const { BASE_URL } = import.meta.env;
             <div class="d-flex flex-column align-items-center">
                 <h4>Under Construction</h4>
                 <p>This site is currently under construction.<br>Pages are subject to frequent change.</p>
+                <ul class="git-info">
+                    <li class="git-info-item"><a href="https://github.com/jmuzina/frostbreak.org/releases">Update history</a></li>
+                    <li class="git-info-item"><a href="https://github.com/users/jmuzina/projects/2">Project plan</a></li>
+                </ul>
                 <div class="silly-construction-assets">
-                    <img src={`${BASE_URL}assets/pikaconstruction.gif`} alt="Pikachu in a construction hat operating a jackhammer that she is comically underqualified to operate.">
+                    <img src={`${BASE_URL}assets/pikaconstruction.gif`}
+                         alt="Pikachu in a construction hat operating a jackhammer that she is comically underqualified to operate.">
                     <div class="repeated-construction-row">
-                        <img src={`${BASE_URL}assets/construction.gif`} alt="A construction sign with a cartoon worker digging.">
-                        <img src={`${BASE_URL}assets/construction.gif`} alt="The same as the previous construction sign.">
-                        <img src={`${BASE_URL}assets/construction.gif`} alt="It's the same image as before. For comedic effect.">
+                        <img src={`${BASE_URL}assets/construction.gif`}
+                             alt="A construction sign with a cartoon worker digging.">
+                        <img src={`${BASE_URL}assets/construction.gif`}
+                             alt="The same as the previous construction sign.">
+                        <img src={`${BASE_URL}assets/construction.gif`}
+                             alt="It's the same image as before. For comedic effect.">
                     </div>
                 </div>
             </div>
@@ -30,6 +38,18 @@ const { BASE_URL } = import.meta.env;
 </footer>
 
 <style>
+    .git-info {
+        display: flex;
+        flex-flow: row wrap;
+        gap: var(--spacing-xs);
+        margin-bottom: var(--spacing-s);
+
+        & > .git-info-item:not(:last-child)::after {
+            content: "|";
+            margin-left: var(--spacing-xs);
+        }
+    }
+
     .footer-title-wrapper {
         display: flex;
         justify-content: space-between;
