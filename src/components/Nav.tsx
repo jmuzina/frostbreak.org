@@ -32,6 +32,7 @@ const Nav: React.FC<NavProps> = ({ textLinks, iconLinks }) => {
 
   const isCurrentPage = (href?: string): string | boolean => {
     let pathname = window.location.pathname.replace(BASE_URL, "");
+    href = href?.replace(BASE_URL, "");
 
     if (!href) return pathname === "";
 
@@ -110,7 +111,7 @@ const Nav: React.FC<NavProps> = ({ textLinks, iconLinks }) => {
                               isCurrentPage(childHref) ? "page" : undefined
                             }
                             className="link"
-                            href={`${BASE_URL}${childHref}`}
+                            href={childHref}
                             target={childTarget}
                           >
                             {childLabel}
@@ -124,7 +125,7 @@ const Nav: React.FC<NavProps> = ({ textLinks, iconLinks }) => {
                 <a
                   aria-current={isCurrentPage(href) ? "page" : undefined}
                   className="link"
-                  href={`${BASE_URL}${href}`}
+                  href={href}
                   target={target}
                 >
                   {label}
