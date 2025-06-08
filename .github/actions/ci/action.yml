@@ -1,4 +1,9 @@
 name: CI
+inputs:
+  pages:
+    description: "Whether to deploy to GitHub Pages"
+    required: false
+    default: "false"
 
 runs:
   using: "composite"
@@ -14,3 +19,16 @@ runs:
     - name: Build
       run: npm run build
       shell: bash
+
+    - name: Save build artifact
+      if: ${{ inputs.pages != 'true' }}
+      uses: actions/upload-artifact@v4
+      with:
+        path: dist
+        name: build
+
+    - name: Upload Pages artifact
+      if: ${{ inputs.pages == 'true' }}
+      uses: actions/upload-pages-artifact@v3.0.1
+      with:
+        path: dist

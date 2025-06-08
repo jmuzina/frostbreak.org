@@ -5,12 +5,11 @@ on:
     branches:
       - main
       - dev
-    paths:
-      - src/**
-      - public/**
-      - package.json
-      - package-lock.json
-      - astro.config.mjs
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -20,5 +19,30 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
+      - name: Compute base url
+        id: base_url
+        run: |
+          echo "REF IS ${{ github.ref }}"
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "BASE_URL=frostbreak.org" >> $GITHUB_OUTPUT
+          else
+            echo "BASE_URL=frostbreak.org/staging" >> $GITHUB_OUTPUT
+          fi
+
       - name: CI
         uses: ./.github/actions/ci
+        env:
+          BASE_URL: ${{ steps.base_url.outputs.BASE_URL }}
+        with:
+          pages: true
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

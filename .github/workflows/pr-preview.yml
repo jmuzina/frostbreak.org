@@ -24,7 +24,7 @@ jobs:
       - name: CI
         uses: ./.github/actions/ci
         env:
-          PR_PREVIEW_PREFIX: frostbreak.org/pr-preview/pr-${{ github.event.pull_request.number }}
+          BASE_URL: frostbreak.org/pr-preview/pr-${{ github.event.pull_request.number }}
 
       - name: Deploy preview
         id: deploy-preview
