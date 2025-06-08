@@ -4,9 +4,16 @@ import react from "@astrojs/react";
 import { browserslistToTargets } from "lightningcss";
 import browserslist from "browserslist";
 
+const { PR_PREVIEW_PREFIX } = process.env;
+
+const base = PR_PREVIEW_PREFIX?.length ? `/${PR_PREVIEW_PREFIX}/` : "/";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
+  build: {
+    assets: "astroAssets",
+  },
   vite: {
     css: {
       transformer: "lightningcss",
@@ -21,4 +28,5 @@ export default defineConfig({
       cssMinify: "lightningcss",
     },
   },
+  base,
 });
