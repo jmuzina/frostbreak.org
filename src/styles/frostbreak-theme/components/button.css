@@ -1,9 +1,11 @@
 button,
 .button {
   --color-button-background: var(--color-input-background);
+  --color-button-background-disabled: var(--color-input-background-disabled);
   --color-button-background-hover: var(--color-input-background-hover);
   --color-button-background-focus: var(--color-input-background-focus);
   --color-button-text: var(--color-text-default);
+  --color-button-text-disabled: var(--color-text-disabled);
   --color-button-background-primary: var(--color-primary);
   --color-button-background-secondary: var(--color-secondary);
   --border-button: var(--border-input);
@@ -39,5 +41,11 @@ button,
   &:focus {
     --color-button-background: var(--color-button-background-focus);
     --button-border: var(--border-button-focus);
+  }
+
+  &:disabled {
+    background-color: var(--color-button-background-disabled);
+    color: var(--color-button-text-disabled);
+    cursor: not-allowed;
   }
 }

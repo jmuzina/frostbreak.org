@@ -29,6 +29,8 @@
   --color-border: var(--color-air-force-blue);
   --color-border-focus: var(--color-secondary-alt);
 
+  --color-input-background-disabled: var(--color-grey);
+  --color-text-disabled: var(--color-text-secondary);
   --color-input-background: var(--color-grey);
   --color-input-background-hover: var(--color-gold);
   --color-input-background-focus: var(--color-input-background-hover);

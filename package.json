@@ -1,7 +1,7 @@
 {
   "name": "frostbreak.org",
   "description": "A home for Buffalo's queer community.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Frostbreak",
   "type": "module",
   "scripts": {
@@ -25,6 +25,7 @@
     "lightningcss": "1.30.1",
     "normalize.css": "8.0.1",
     "prettier": "3.5.3",
+    "react-toastify": "11.0.5",
     "reset-css": "5.0.2",
     "typescript": "5.8.3",
     "typescript-eslint": "8.33.1"
