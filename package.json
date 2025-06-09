@@ -1,7 +1,7 @@
 {
   "name": "frostbreak.org",
   "description": "A home for Buffalo's queer community.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Frostbreak",
   "type": "module",
   "scripts": {
