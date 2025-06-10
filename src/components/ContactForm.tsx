@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-const { NODE_ENV } = import.meta.env;
+const { NODE_ENV } = process.env;
+console.log(NODE_ENV);
 const CONTACT_SERVICE_ADDRESS = `${NODE_ENV === "production" ? "https://fox-den.frostbreak.org" : "http://localhost:3000"}/contact/send`;
 
 const ContactForm = () => {
