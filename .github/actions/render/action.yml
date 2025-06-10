@@ -1,0 +1,41 @@
+name: "Deploy to Render"
+
+inputs:
+  RENDER_CLEAR_CACHE:
+    description: "Clear Render's build cache"
+    required: false
+    default: "false"
+  RENDER_WAIT_DEPLOY:
+    description: "Wait for the deployment to finish"
+    required: false
+    default: "true"
+  RENDER_GITHUB_DEPLOYMENT:
+    description: "Create a GitHub deployment"
+    required: false
+    default: "true"
+  RENDER_DEPLOYMENT_ENVIRONMENT:
+    description: "Deployment environment name"
+    required: false
+    default: "production"
+  RENDER_SERVICE_ID:
+    description: "Render service ID"
+    required: true
+  RENDER_API_KEY:
+    description: "Render API key"
+    required: true
+  GITHUB_TOKEN:
+    description: "GitHub token for authentication"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: JorgeLNJunior/render-deploy@v1.4.5
+      with:
+        service_id: ${{ inputs.RENDER_SERVICE_ID }}
+        api_key: ${{ inputs.RENDER_API_KEY }}
+        clear_cache: ${{ inputs.RENDER_CLEAR_CACHE }}
+        wait_deploy: ${{ inputs.RENDER_WAIT_DEPLOY }}
+        github_deployment: ${{ inputs.RENDER_GITHUB_DEPLOYMENT }}
+        deployment_environment: ${{ inputs.RENDER_DEPLOYMENT_ENVIRONMENT }}
+        github_token: ${{ inputs.GITHUB_TOKEN }}
