@@ -25,6 +25,7 @@ button,
     background: none;
   }
 
+  /* todo refine the secondary and primary colors with the rest of the palette, this is rough */
   &.primary {
     --color-button-background: var(--color-button-background-primary);
     --color-button-background-hover: var(--color-primary-alt);
@@ -32,6 +33,7 @@ button,
 
   &.secondary {
     --color-button-background: var(--color-button-background-secondary);
+    --color-button-background-hover: var(--color-secondary-alt);
   }
 
   &:hover {
@@ -40,6 +42,7 @@ button,
 
   &:focus {
     --color-button-background: var(--color-button-background-focus);
+    --color-button-background-focus: var(--color-secondary-alt);
     --button-border: var(--border-button-focus);
   }
 
