@@ -1,0 +1,16 @@
+.icon {
+  display: inline-block;
+  border-color: currentColor;
+  border-width: 2px;
+  border-style: solid;
+  margin: 0 var(--spacing-xs);
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+
+  &.loading-spinner {
+    animation: spin 1s linear infinite;
+    border-top-color: transparent;
+    border-radius: 50%;
+  }
+}
