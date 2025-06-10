@@ -22,3 +22,10 @@ jobs:
 
       - name: CI
         uses: ./.github/actions/ci
+
+      - name: Deploy
+        uses: ./.github/actions/render
+        with:
+          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          RENDER_DEPLOYMENT_ENVIRONMENT: ${{ github.ref == 'refs/heads/main' && 'staging' || 'dev' }}
