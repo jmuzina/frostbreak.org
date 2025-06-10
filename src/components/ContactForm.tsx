@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const { NODE_ENV } = process.env;
-console.log(NODE_ENV);
-const CONTACT_SERVICE_ADDRESS = `${NODE_ENV === "production" ? "https://fox-den.frostbreak.org" : "http://localhost:3000"}/contact/send`;
+// todo fix this condition, find a way to build env vars into astro somehow. Currently node env is undefined no matter what i do.
+const CONTACT_SERVICE_ADDRESS = `${NODE_ENV === "production" || true ? "https://fox-den.frostbreak.org" : "http://localhost:3000"}/contact/send`;
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
