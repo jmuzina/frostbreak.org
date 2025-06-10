@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-const { NODE_ENV } = process.env;
 // todo fix this condition, find a way to build env vars into astro somehow. Currently node env is undefined no matter what i do.
-const CONTACT_SERVICE_ADDRESS = `${NODE_ENV === "production" || true ? "https://fox-den.frostbreak.org" : "http://localhost:3000"}/contact/send`;
+const CONTACT_SERVICE_ADDRESS = "https://fox-den.frostbreak.org/contact/send";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -130,7 +129,14 @@ const ContactForm = () => {
         className="button primary submit"
         disabled={loading || !isValid}
       >
-        {loading ? "Sending..." : "Send Message"}
+        {loading ? (
+          <span>
+            Submitting...
+            <i className="icon loading-spinner" />
+          </span>
+        ) : (
+          "Send Message"
+        )}
       </button>
     </form>
   );

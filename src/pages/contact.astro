@@ -14,8 +14,13 @@ const contactEmail = "frostbreak.buffalo@gmail.com";
             feel free to reach out to us via email at <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
             or through the form below.
         </p>
+        <p>
+            <b>Please note:</b>&nbsp;The contact form was recently introduced.
+            Its backend is currently hosted on a free service (Minecraft Realms style) which may lead to longer response times (30+ seconds) if it hasn't been used recently.
+            We are currently working on migrating the backend to a more reliable service!
+        </p>
     </section>
-    <section>
+    <section class="section">
         <ContactForm client:only="react" />
     </section>
 
