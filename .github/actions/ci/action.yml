@@ -14,3 +14,9 @@ runs:
     - name: Build
       run: npm run build
       shell: bash
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        path: dist
+        name: build

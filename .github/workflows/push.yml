@@ -5,13 +5,9 @@ on:
     branches:
       - main
       - dev
-    paths:
-      - src/**
-      - public/**
-      - package.json
-      - package-lock.json
-      - astro.config.mjs
-
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
 jobs:
   build:
     name: Build
@@ -22,21 +18,29 @@ jobs:
 
       - name: CI
         uses: ./.github/actions/ci
-#  deploy:
-#    if: github.ref == 'refs/heads/main'
-#    name: Deploy
-#    runs-on: ubuntu-latest
-#    needs: build
-#    permissions:
-#      deployments: write
-#    steps:
-#      - name: Checkout Repo
-#        uses: actions/checkout@v4
-#
-#      - name: Deploy
-#        uses: ./.github/actions/render
-#        with:
-#          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
-#          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-#          RENDER_DEPLOYMENT_ENVIRONMENT: staging
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  deploy:
+    if: github.ref_name == 'main'
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: ${{ github.ref_name }}
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+
+      - name: Deploy static site
+        uses: appleboy/scp-action@v1.0.0
+        with:
+          host: ${{ secrets.WEB_DEPLOY_HOST }}
+          username: ${{ secrets.WEB_DEPLOY_USERNAME }}
+          key: ${{ secrets.WEB_DEPLOY_SSH_KEY }}
+          passphrase: ${{ secrets.WEB_DEPLOY_SSH_PASSPHRASE }}
+          port: ${{ secrets.WEB_DEPLOY_PORT }}
+          source: .
+          target: ${{ secrets.WEB_DEPLOY_PATH }}
+          tar_tmp_path: ${{ secrets.WEB_DEPLOY_TEMP_PATH }}
+          rm: true
+          timeout: 60s
