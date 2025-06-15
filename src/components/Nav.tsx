@@ -67,7 +67,7 @@ const Nav: React.FC<NavProps> = ({ textLinks, iconLinks }) => {
             src={`${BASE_URL}assets/frostbreak-logo-64x64.png`}
             width="32"
             height="32"
-            alt="The logo of Frostbreak. A crested shield that is split into four quadrants. From top-left ot bottom-right, the quadrants contain a blue dragon, a pride progress flag, a snowflake, and a fox. "
+            alt="The logo of Frostbreak. A crested shield that is split into four quadrants. From top-left to bottom-right: a blue dragon, a pride progress flag, a snowflake, and a fox. "
           />
           Frostbreak
         </a>

@@ -2,25 +2,25 @@
   --color-white: #ffffff;
   --color-grey: #e8e8e8;
   --color-black: #000000;
-  --color-air-force-blue: #5f8695ff;
-  --color-light-blue: #a6d6e9ff;
+  --color-air-force-blue: rgb(57, 91, 104);
+  --color-light-blue: #add8eb;
   --color-lighter-blue: #bae8fa;
   --color-palatinate-blue: #3e47cbff;
   --color-silver: #c7c4c6ff;
-  --color-brown-sugar: #ffa070;
-  --color-orange: #dd7902;
-  --color-orange-100: #aa5d00;
+  --color-brown-100: #754100ff;
+  --color-orange-100: #d4af37;
   --color-orange-200: #a36814;
-  --color-purple-100: #8d0097;
+  --color-purple-100: #5d0088;
   --color-purple-200: #a806b3;
   --color-maize: #fff986;
   --color-gold: #efe845;
+  --color-blue-900: #0d1335;
 
   --color-primary: var(--color-maize);
   --color-primary-alt: var(--color-gold);
   --color-secondary: var(--color-light-blue);
   --color-secondary-alt: var(--color-silver);
-  --color-tertiary: var(--color-brown-sugar);
+  --color-tertiary: var(--color-brown-100);
 
   --color-background: var(--color-light-blue);
   --color-background-alt: var(--color-lighter-blue);
@@ -36,8 +36,8 @@
   --color-input-background-focus: var(--color-input-background-hover);
   --color-input-border-focus: var(--color-primary);
 
-  --color-link: var(--color-orange);
-  --color-link-hover: var(--color-orange-100);
+  --color-link: var(--color-brown-100);
+  --color-link-hover: var(--color-blue-900);
   --color-link-visited: var(--color-purple-100);
 
   /* Spacing */
