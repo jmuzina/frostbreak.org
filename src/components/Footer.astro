@@ -10,14 +10,14 @@ const { version } = pJson;
     <div class="grid-row">
         <div class="grid-col-6 grid-col-md-4 footer-section">
             <div class="footer-title-wrapper">
-                <h4>Upcoming Events</h4>
+                <h2 class="p-heading--4">Upcoming Events</h2>
                 <a href="/calendar">See more &rsaquo;</a>
             </div>
             <CalendarComponent mode="AGENDA" height={300}/>
         </div>
         <div class="grid-col-6 grid-col-md-4 footer-section">
             <div class="d-flex flex-column align-items-center">
-                <h4>Under Construction</h4>
+                <h2 class="p-heading--4">Under Construction</h2>
                 <p>This site is currently under construction.<br>Pages are subject to frequent change.</p>
                 <ul class="git-info">
                     <li class="git-info-item"><a
@@ -30,7 +30,7 @@ const { version } = pJson;
                 </ul>
                 <div class="silly-construction-assets">
                     <img src={`${BASE_URL}assets/pikaconstruction.gif`}
-                         alt="Pikachu in a construction hat operating a jackhammer that she is comically underqualified to operate.">
+                         alt="Pikachu operating a jackhammer that she is comically underqualified to operate.">
                     <div class="repeated-construction-row">
                         <img src={`${BASE_URL}assets/construction.gif`}
                              alt="A construction sign with a cartoon worker digging.">
