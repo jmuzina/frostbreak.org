@@ -93,14 +93,16 @@
   gap: var(--spacing-s);
   margin-left: auto;
   margin-top: var(--spacing-s);
-}
 
-.nav__social {
-  font-size: 1.5rem;
-  &,
-  &:visited {
-    &:not(:hover) {
+  .nav__social {
+    &,
+    &:visited {
+      font-size: 1.5rem;
       color: var(--color-text-default);
+    }
+    &:hover,
+    &:focus {
+      color: var(--color-link);
     }
   }
 }
