@@ -1,7 +1,7 @@
 ---
 import CalendarComponent from "./CalendarComponent.astro";
 
-const { BASE_URL } = import.meta.env;
+const { BASE_URL, PUBLIC_GITHUB_REPO_URL } = import.meta.env;
 
 const pJson = await import("../../package.json");
 const { version } = pJson;
@@ -21,9 +21,9 @@ const { version } = pJson;
                 <p>This site is currently under construction.<br>Pages are subject to frequent change.</p>
                 <ul class="git-info">
                     <li class="git-info-item"><a
-                            href={`https://github.com/jmuzina/frostbreak.org/releases/tag/v${version}`} target="_blank">v{version}</a>
+                            href={`${PUBLIC_GITHUB_REPO_URL}/releases/tag/v${version}`} target="_blank">v{version}</a>
                     </li>
-                    <li class="git-info-item"><a href="https://github.com/jmuzina/frostbreak.org/releases"
+                    <li class="git-info-item"><a href={`${PUBLIC_GITHUB_REPO_URL}/releases`}
                                                  target="_blank">Update history</a></li>
                     <li class="git-info-item"><a href="https://github.com/users/jmuzina/projects/2" target="_blank">Project
                         plan</a></li>

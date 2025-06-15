@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-// todo fix this condition, find a way to build env vars into astro somehow. Currently node env is undefined no matter what i do.
-const CONTACT_SERVICE_ADDRESS = "https://fox-den.frostbreak.org/contact/send";
+const { PUBLIC_API_SERVICE_ADDRESS } = import.meta.env;
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -32,13 +31,16 @@ const ContactForm = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(CONTACT_SERVICE_ADDRESS, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${PUBLIC_API_SERVICE_ADDRESS}/contact/send`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       const result = await response.text();
 

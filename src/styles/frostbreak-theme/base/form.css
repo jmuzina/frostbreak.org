@@ -1,12 +1,5 @@
 form,
 .form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: var(--spacing-xs);
-  max-width: 700px;
-  margin: auto;
-
-  & > * {
-    max-width: 100%;
-  }
 }
