@@ -1,12 +1,14 @@
 {
   "name": "frostbreak.org",
   "description": "A home for Buffalo's queer community.",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Frostbreak",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:staging": "astro build --mode staging",
+    "build:production": "astro build --mode production",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint && astro check && prettier -c .",

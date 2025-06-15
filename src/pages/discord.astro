@@ -1,14 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro"
-import {DISCORD_INVITE_LINK} from "../constants";
 const title = "Frostbreak Discord Server";
 const description = "Join our discord server";
+const { PUBLIC_DISCORD_INVITE_LINK } = import.meta.env;
 ---
 <BaseLayout title={{text: title}} description={description}>
     <section class="section">
         <p>Redirecting to our Discord server.</p>
-        <p>Click <a href={DISCORD_INVITE_LINK}>here</a> if you are not redirected.</p>
+        <p>Click <a href={PUBLIC_DISCORD_INVITE_LINK}>here</a> if you are not redirected.</p>
         <noscript>
             <p>
               Your browser does not support JavaScript or you have disabled JavaScript.
@@ -18,6 +17,6 @@ const description = "Join our discord server";
     </section>
 </BaseLayout>
 
-<script is:inline define:vars={{DISCORD_INVITE_LINK}}>
-  window.location.href = `${DISCORD_INVITE_LINK}`;
+<script is:inline define:vars={{PUBLIC_DISCORD_INVITE_LINK}}>
+  window.location.href = `${PUBLIC_DISCORD_INVITE_LINK}`;
 </script>

@@ -1,4 +1,9 @@
 name: CI
+inputs:
+  NODE_ENV:
+    description: "Node environment"
+    required: true
+    default: staging
 
 runs:
   using: "composite"
@@ -12,7 +17,7 @@ runs:
       shell: bash
 
     - name: Build
-      run: npm run build
+      run: npm run build:${{ inputs.NODE_ENV }}
       shell: bash
 
     - name: Upload build artifact

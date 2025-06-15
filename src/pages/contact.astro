@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm";
 const title = "Contact us";
 const description = "Get in touch with the Frostbreak team for any information or inquiries you may have.";
-const contactEmail = "frostbreak.buffalo@gmail.com";
+const { PUBLIC_MAIL_CONTACT_ADDRESS } = import.meta.env;
 ---
 <BaseLayout title={{text: title}} description={description}>
     <section class="section">
@@ -11,13 +11,8 @@ const contactEmail = "frostbreak.buffalo@gmail.com";
             Generally, we encourage all inquiries to be made through our <a href="/discord">Discord server</a>.
             However, we recognize that not everyone can or wants to use Discord.
             So, if you have any questions, suggestions, or just want to say hello,
-            feel free to reach out to us via email at <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+            feel free to reach out to us via email at <a href={`mailto:${PUBLIC_MAIL_CONTACT_ADDRESS}`}>{PUBLIC_MAIL_CONTACT_ADDRESS}</a>
             or through the form below.
-        </p>
-        <p>
-            <b>Please note:</b>&nbsp;The contact form was recently introduced.
-            Its backend is currently hosted on a free service (Minecraft Realms style) which may lead to longer response times (30+ seconds) if it hasn't been used recently.
-            We are currently working on migrating the backend to a more reliable service!
         </p>
     </section>
     <section class="section">
