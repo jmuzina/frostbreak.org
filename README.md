@@ -1,5 +1,9 @@
 # Frostbreak site
 
+Front-end for [frostbreak.org](https://frostbreak.org). 
+
+The [back-end](https://frostbreak.org/api/health)'s code can be found [here](https://github.com/jmuzina/fox-den.frostbreak.org), though maybe one day it will be consolidated into this repo. 
+
 ## Getting started
 
 1. Install [Node.js](https://nodejs.org/en/download/)
