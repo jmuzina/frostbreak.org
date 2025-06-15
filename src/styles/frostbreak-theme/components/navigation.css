@@ -1,6 +1,6 @@
 .skip-nav {
   position: absolute;
-  top: -40px;
+  top: -100rem;
   left: 0;
   background: var(--color-text-default);
   color: var(--color-background) !important;
